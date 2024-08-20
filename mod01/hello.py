@@ -1,1 +1,1 @@
-print('Hei, Sandra!')
+print('Hei, Sandra Juursoo!')
