@@ -23,8 +23,8 @@ n_points_inside_circle = 0
 
 index = 0
 while index < N_number_of_points:
-    x = random.random()
-    y = random.random()
+    x = random.uniform(-1, 1)
+    y = random.uniform(-1, 1)
 
     if x**2 + y**2 < 1:
         n_points_inside_circle += 1
