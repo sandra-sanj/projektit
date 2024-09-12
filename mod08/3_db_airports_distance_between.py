@@ -11,22 +11,29 @@ def get_airport_name_and_coordinates_by_icao(airport_icao):
 
     cursor = connection.cursor()
     cursor.execute(sql)
-    result = cursor.fetchall()
+    result = cursor.fetchone()
 
     if cursor.rowcount == 1:
         for row in result:
-            return row[0], row[1], row[2]
-    return
+            return row[0], row[1], row[2]  # name, latitude, longtitude
+    return False, False, False
 
 
 def get_distance_between_two_airports(airport1_icao, airport2_icao):
     airport1_name, airport1_latitude, airport1_longitude = get_airport_name_and_coordinates_by_icao(airport1_icao)
     airport2_name, airport2_latitude, airport2_longitude = get_airport_name_and_coordinates_by_icao(airport2_icao)
 
-    distance_km = geopy.distance.distance((airport1_latitude, airport1_longitude),
-                                          (airport2_latitude, airport2_longitude))
+    if not airport1_name:
+        return print('Unknown first airport')
+    if not airport2_name:
+        return print('Unknown second airport')
+    if airport1_icao == airport2_icao:
+        return print('Airports are the same')
 
-    # distance_km.km changes geodesic type to int
+    # transform distance (km) into float
+    distance_km = geopy.distance.distance((airport1_latitude, airport1_longitude),
+                                          (airport2_latitude, airport2_longitude)).km
+
     print(f'Distance between {airport1_name} and {airport2_name} is {round(distance_km.km, 2)} km')
     return
 
