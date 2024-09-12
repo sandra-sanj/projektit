@@ -33,21 +33,21 @@ while user_command != 'exit':
         continue
 
     elif user_command == 'input':
-        airport_icoa_code = input('Enter airport ICOA code: ')
+        airport_icao_code = input('Enter airport ICAO code: ')
         airport_name = input('Enter airport name: ')
 
-        result = try_add_to_database(airport_icoa_code, airport_name)
+        result = try_add_to_database(airport_icao_code, airport_name)
         if result:
             print('Added airport to database.')
         else:
             print('Airport already in database.')
 
     elif user_command == 'search':
-        airport_icoa_code = input('Enter airport ICOA code to search: ')
-        result = try_search_database(airport_icoa_code)
+        airport_icao_code = input('Enter airport ICAO code to search: ')
+        result = try_search_database(airport_icao_code)
 
         if result:
-            print(f'{airport_icoa_code}: {result}')
+            print(f'{airport_icao_code}: {result}')
         else:
             print('Airport not found.')
 
