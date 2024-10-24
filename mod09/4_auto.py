@@ -1,4 +1,5 @@
 import random
+from tabulate import tabulate
 
 
 class Auto:
@@ -33,6 +34,9 @@ while not max_km_kuljettu:
         if auto.kuljettu_matka >= 10000:
             max_km_kuljettu = True
 
-print('Rekisteritunnus, huippunopeus, nopeus, kuljettu matka')
-for auto in autot:
-    print(f'{auto.rekisteritunnus} : {auto.huippunopeus} km/h : {auto.nopeus} km/h : {auto.kuljettu_matka} km')
+auto_taulukko_formaatti = [
+    [auto.rekisteritunnus, auto.huippunopeus, auto.nopeus, auto.kuljettu_matka] for auto in autot
+]
+
+headers = ['Rekisteritunnus', 'Huippunopeus (km/h)', 'Nopeus (km/h)', 'Kuljettu matka (km)']
+print(tabulate(auto_taulukko_formaatti, headers=headers, tablefmt='pretty'))

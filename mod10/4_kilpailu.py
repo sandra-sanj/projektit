@@ -1,4 +1,5 @@
 import random
+from tabulate import tabulate
 
 
 class Auto:
@@ -33,12 +34,12 @@ class Kilpailu:
             auto.kulje(1)
 
     def tulosta_tilanne(self):
-        print('Rekisteritunnus, huippunopeus, nopeus, kuljettu matka')
-        for auto in self.osallistuvat_autot:
-            print(f'{auto.rekisteritunnus} : '
-                  f'{auto.huippunopeus} km/h : '
-                  f'{auto.nopeus} km/h : '
-                  f'{auto.kuljettu_matka} km')
+        auto_taulukko_formaatti = [
+            [auto.rekisteritunnus, auto.huippunopeus, auto.nopeus, auto.kuljettu_matka] for auto in autot
+        ]
+
+        headers = ['Rekisteritunnus', 'Huippunopeus (km/h)', 'Nopeus (km/h)', 'Kuljettu matka (km)']
+        print(tabulate(auto_taulukko_formaatti, headers=headers, tablefmt='pretty'))
 
     def kilpailu_ohi(self):
         return any([auto.kuljettu_matka >= self.pituus_km for auto in self.osallistuvat_autot])
