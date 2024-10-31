@@ -2,7 +2,7 @@ import requests
 import json
 
 
-api_key = '9dcf9ca49b00dbaa9fb7b2ee2871bd8e'
+api_key = False
 kelvin = 273.15
 
 city_name = input('Enter city name: ')
@@ -14,15 +14,10 @@ try:
     if result.status_code == 200:
         json_result = result.json()
 
-        """
-        result_contents = json.dumps(json_result, indent=2)
-        print(result_contents)
-        """
-
         temperature = json_result['main']['temp']
         temperature_celcius = temperature - kelvin
         weather_description = json_result['weather'][0]['description']
         print(f'{weather_description.capitalize()}, {round(temperature_celcius, 1)}°C')
 
 except requests.exceptions.RequestException as e:
-    print('Error')
+    print(e)
