@@ -1,3 +1,5 @@
+'use strict';
+
 function numbersMath() {
     
     const int1 = parseFloat(prompt('Input first number: '));

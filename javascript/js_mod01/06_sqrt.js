@@ -1,3 +1,5 @@
+'use strict';
+
 function sqrt() {
     
     const calculate = confirm('Should I calculate the square root?');

@@ -1,3 +1,5 @@
+'use strict';
+
 function primeNumberFunction() {
     
     function primeNumber(number) {

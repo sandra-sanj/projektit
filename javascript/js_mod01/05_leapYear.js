@@ -1,3 +1,5 @@
+'use strict';
+
 function leapYear() {
     
     const year = prompt('Enter year:');

@@ -1,3 +1,5 @@
+'use strict';
+
 function leapYearsWithinTimePeriod() {
     
     const startYear = parseInt(prompt('Enter start year:'));

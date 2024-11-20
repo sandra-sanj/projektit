@@ -1,3 +1,5 @@
+'use strict';
+
 function userPrompt() {
     
     const name = prompt('Input name: ');

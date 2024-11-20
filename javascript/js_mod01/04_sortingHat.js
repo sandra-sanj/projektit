@@ -1,3 +1,5 @@
+'use strict';
+
 function sortingHat() {
     
     const name = prompt('Enter your name: ');

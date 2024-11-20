@@ -1,3 +1,5 @@
+'use strict';
+
 function printInHTML(result) {
     const element = document.querySelector('#text');
     element.innerHTML = result;

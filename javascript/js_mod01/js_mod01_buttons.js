@@ -1,3 +1,5 @@
+'use strict';
+
 function loadButtons() {
     
     const addButton1 = document.querySelector('#script1');

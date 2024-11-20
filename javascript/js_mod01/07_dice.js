@@ -1,3 +1,5 @@
+'use strict';
+
 function rollDice(times) {
     let rolls = [];
     for (let i = 1; i <= times; i++) {
